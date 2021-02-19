@@ -3,4 +3,4 @@
 # 특정 폴더에 있는 파일: temp/abc.txt
 # 특정 폴더: temp/
 # 특정 파일이나 폴더 제외: !test.txt
-.DS_Store
+*.DS_Store
