@@ -1,0 +1,6 @@
+# 하나의파일(txt예시): 파일명.txt
+# 확장자가 동일한 모든 파일: *.txt
+# 특정 폴더에 있는 파일: temp/abc.txt
+# 특정 폴더: temp/
+# 특정 파일이나 폴더 제외: !test.txt
+*.DS_Store
