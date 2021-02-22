@@ -17,7 +17,7 @@
 입력 [[yellow_hat, headgear], [blue_sunglasses, eyewear], [green_turban, headgear]]	
 출력 5 */
 
-//수도코드
+/* --- 수도코드 --- */
 //의상종류에따라 객체에 할당한다.
 //{a:3, b:2, c:4}
 //하나만입는경우 3+2+4 = 9
@@ -55,4 +55,19 @@ function solution(clothes) {
   answer = answer - 1;
 
   return answer;
+}
+
+/* --- 다른사람의 풀이 --- */
+function solution(clothes) {
+  let answer = 1;
+  const obj = {};
+  for (let arr of clothes) {
+    obj[arr[1]] = (obj[arr[1]] || 0) + 1;
+  }
+
+  for (let key in obj) {
+    answer *= obj[key] + 1;
+  }
+
+  return answer - 1;
 }
