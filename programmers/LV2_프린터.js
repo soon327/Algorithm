@@ -60,6 +60,9 @@ function solution(priorities, location) {
 /* -- 다른사람의 풀이 해석 -- */
 
 function solution(priorities, location) {
+  //location에 해당하는 우선순위값을 찾기위해서 객체로 만들어줬다.
+  //요소하나하나를 객체로 만들었기 때문에 list는 객체를 요소로갖는 배열이 된다.
+  //location의 우선순위값 객체는 {my: true, val: 우선순위값}으로 들어가게 된다.
   var list = priorities.map((t, i) => ({
     my: i === location,
     val: t,
@@ -67,12 +70,17 @@ function solution(priorities, location) {
 
   var count = 0;
   while (true) {
+    //cur에는 list의 첫번째요소가 들어가고, list는 첫번째 요소가 제거된다.
+    //splice는 mutable method임을 기억하자.
+    //변수에는 제거한 값이 할당되고, 원본은 제거된 상태로 변하게 된다.
     var cur = list.splice(0, 1)[0];
 
     if (list.some((t) => t.val > cur.val)) {
       list.push(cur);
     } else {
       count++;
+      //가장 커서 count++한 요소의 my값이 true이면, 즉 처음에 매개변수로 입력된 location의 값이면
+      //count를 return해서 몇번재로 프린트됐는지 알 수 있다.
       if (cur.my) return count;
     }
   }
