@@ -6,15 +6,16 @@
 원래 직사각형에서는 96개의 정사각형을 만들 수 있었으므로, 96 - 16 = 80 을 반환합니다. */
 
 function solution(w, h) {
-  //w>h이면 w/h를 ceil한 만큼 한줄당 못쓰게된다. 그러므로 여기에 h를 곱한다.
-  //h<w이면 h/w를 ceil한 만큼 한 column당 못쓰게된다. 그러므로 여기에 w를 곱한다.
-  let total = w * h;
-  let cantUse = 0;
-  if (w >= h) {
-    cantUse = Math.ceil(w / h) * h;
-  } else {
-    cantUse = Math.ceil(h / w) * w;
+  let answer = 1;
+  let num = 1;
+
+  let min = Math.min(w, h);
+  for (let i = min; i > 0; i--) {
+    if (w % i === 0 && h % i === 0) {
+      num = i;
+      break;
+    }
   }
-  let result = total - cantUse;
-  return result;
+  answer = w * h - (w + h - num);
+  return answer;
 }
