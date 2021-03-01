@@ -19,3 +19,29 @@ function solution(w, h) {
   answer = w * h - (w + h - num);
   return answer;
 }
+
+//다른사람의 풀이
+/* 1. 사각형의 w와 h가 서로소인 경우 잘린 정사각형의 갯수 = w + h - 1 */
+/* 2. 사각형에서 서로소 관계의 사각형의 갯수 = 최대공약수 */
+/* 3. 잘린 정사각형의 개수는 g * ((w` / g) + (h`/g) - 1) = w`+ h` - g */
+/* *서로소 : 두 수 사이의 관계가 1 이외에 공약수가 없는 수 */
+function solution(w, h) {
+  const gcd = (a, b) => {
+    return b === 0 ? a : gcd(b, a % b);
+  };
+
+  return w * h - (w + h - gcd(w, h));
+}
+
+//다른사람풀이 2
+//기울기를 사용한 풀이
+function solution(w, h) {
+  const slope = h / w;
+  let result = 0;
+
+  for (let i = 1; i <= w; i++) {
+    result += Math.ceil(slope * i);
+  }
+
+  return (h * w - result) * 2;
+}
