@@ -33,3 +33,30 @@ OR연산자 사용시, <br>
 첫 피연산자가 true한 값일 때, 다음 연산자 값을 할당한다.
 <br>
 따라서 해당값이 이미 어떠한 값을 갖고 있을 때, 사용하면 유용하다.
+<br><br>
+
+---
+
+<br>
+
+## 최대공약수 구하기
+
+> from programmers/멀쩡한사각형
+
+**Greatest Common Divisor(GCD) 구하는 식**
+
+```js
+let gcd = 1;
+let min = Math.min(w, h);
+
+for (let i = min; i > 0; i--) {
+  if (w % i === 0 && h % i === 0) {
+    gcd = i;
+    break;
+  }
+}
+```
+
+<br>
+
+---
