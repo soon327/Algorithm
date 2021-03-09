@@ -43,7 +43,9 @@ OR연산자 사용시, <br>
 
 > from programmers/멀쩡한사각형
 
-**Greatest Common Divisor(GCD) 구하는 식**
+**Greatest Common Divisor(GCD) 구하는 식**\
+
+1. 단순 반복문
 
 ```js
 let gcd = 1;
@@ -54,6 +56,25 @@ for (let i = min; i > 0; i--) {
     gcd = i;
     break;
   }
+}
+```
+
+2. 유클리드 호제법
+
+```js
+a와b의 최대공약수 / 최소공배수
+
+let minNum = Math.min(a, b);
+let maxNum = Math.max(a, b);
+
+// 최대공약수
+function gcd(minNum, maxNum)
+return (minNum % maxNum) === 0 ? maxNum : gcd(maxNum, minNum % maxNum);
+}
+
+// 최소공배수
+function lcm(minNum, maxNum){
+return minNum * maxNum / gcd(minNum, maxNum);
 }
 ```
 
